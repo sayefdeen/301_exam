@@ -11,15 +11,18 @@
       <header>
         <a href="/">Home Page</a>
         <a href="/getAllCountires">All Countires</a>
+        <a href="/record">Your Records</a>
       </header>
       <div class="content">
-        <% All.forEach(country=>{ %>
+        <% if(All.length > 0){ %> <% All.forEach(country=>{ %>
         <h2>Country : <%= country.country.split(',')[0] %></h2>
         <p>Date : <%= country.date %></p>
         <form action="/details/<%= country.id %> " method="get">
           <input type="submit" value="View Details" />
         </form>
-        <% }) %>
+        <% }) %> <% }else{ %>
+        <h2>No Avaliable Records</h2>
+        <% } %>
       </div>
     </div>
   </body>

@@ -47,7 +47,6 @@ function getAllRecords(req, res) {
 function getCityDataWithDate(req, res) {
   const { choice, from, to } = req.query;
   const URL = `https://api.covid19api.com/country/${choice}/status/confirmed?from=${from}T00:00:00Z&to=${to}T00:00:00Z`;
-  console.log(URL);
   superagnet.get(URL).then((result) => {
     let dataArray = result.body.map((item) => {
       return new Country(item);
@@ -89,9 +88,7 @@ function getDetails(req, res) {
   const { cID } = req.params;
   const selectSQL = 'SELECT * FROM countries WHERE id=$1';
   const values = [cID];
-  console.log(cID);
   client.query(selectSQL, values).then((result) => {
-    console.log(result.rows[0]);
     res.render('pages/details', { data: result.rows[0] });
   });
 }
