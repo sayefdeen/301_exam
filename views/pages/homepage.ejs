@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="back_groun_image"></div>
+      <header>
+        <a href="/">Home Page</a>
+        <a href="/getAllCountires">All Countires</a>
+      </header>
+      <div class="content">
+        <p>TotalConfirmed : <%= worldData.TotalConfirmed %></p>
+        <p>TotalDeaths : <%= worldData.TotalDeaths %></p>
+        <p>TotalRecovered : <%= worldData.TotalRecovered %></p>
+      </div>
+      <div class="byDate">
+        <form class="row" action="/getByDate" method="GET">
+          <input type="text" name="choice" />
+          <input type="date" name="from" />
+          <input type="date" name="to" />
+          <input type="submit" value="GEt Data" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>By country</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="body_container">
+        <% names.forEach(coun=>{ %>
+        <h2>Date:<%= coun.date %></h2>
+        <p>Number Of comformed Cases : <%= coun.cases %></p>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

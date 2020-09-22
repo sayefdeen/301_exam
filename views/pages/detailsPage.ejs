@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Record Page</title>
+  </head>
+  <body>
+    <div class="continer">
+      <h1>Your Records</h1>
+      <header>
+        <a href="/">Home Page</a>
+        <a href="/getAllCountires">All Countires</a>
+      </header>
+      <div class="content">
+        <% All.forEach(country=>{ %>
+        <h2>Country : <%= country.country.split(',')[0] %></h2>
+        <p>Date : <%= country.date %></p>
+        <form action="/details/<%= country.id %> " method="get">
+          <input type="submit" value="View Details" />
+        </form>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

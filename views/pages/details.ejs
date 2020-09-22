@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="data_content">
+          <h2>COVID19 Statistic For <%= data.country.split(',')[0]%></h2>
+          <p>Total Comformed Cases : <%= data.ccases %></p>
+          <p>Total Death Cases : <%= data.dcaese %></p>
+          <p>Total Recoverd Cases : <%= data.rcaese %></p>
+          <p>Date : <%= data.date %></p>
+          <button id="update">UPDATE</button>
+          <form
+            action="/deleteFromDB/<%=data.id%>?_method=delete"
+            method="post"
+          >
+            <input type="submit" value="DELETE" />
+          </form>
+        </div>
+        <form
+          id="updateForm"
+          action="/update/<%= data.id %>?_method=put "
+          method="post"
+        >
+          <input type="text" name="country" value="<%= data.country %>" />
+          <input type="text" name="cCases" value="<%= data.ccases %>" />
+          <input type="text" name="dCaese" value="<%= data.dcaese %>" />
+          <input type="text" name="rCaese" value="<%= data.rcaese %>" />
+          <input type="text" name="date" value="<%= data.date %>" />
+          <input type="submit" value="UPDATE" />
+        </form>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $('#updateForm').hide();
+      $('#update').click(() => {
+        $('#updateForm').toggle();
+      });
+    </script>
+  </body>
+</html>

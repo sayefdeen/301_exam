@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Countires</title>
+  </head>
+  <body>
+    <div class="continer">
+      <h1>COVID19 Statistics For All Countires</h1>
+      <div class="content">
+        <% All.forEach(country=>{ %>
+        <h2>Country : <%= country.name %></h2>
+        <p>Total Comformed Cases : <%= country.cCases %></p>
+        <p>Total Death Cases : <%= country.dCaese %></p>
+        <p>Total Recoverd Cases : <%= country.rCaese %></p>
+        <p>Date : <%= country.date %></p>
+        <form action="/addToDataBase" method="post">
+          <input type="hidden" name="country" value="<%= country.name %>" />
+          <input type="hidden" name="cCases" value="<%= country.cCases %>" />
+          <input type="hidden" name="dCaese" value="<%= country.dCaese %>" />
+          <input type="hidden" name="rCaese" value="<%= country.rCaese %>" />
+          <input type="hidden" name="date" value="<%= country.date %>" />
+          <input type="submit" value="ADD TO MY RECORDS" />
+        </form>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
